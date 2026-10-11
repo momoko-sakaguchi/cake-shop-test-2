@@ -61,19 +61,22 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
 /* ---------- Hero ---------- */
 .hero{
   position:relative;color:var(--cream);overflow:hidden;
-  background:radial-gradient(120% 90% at 82% 8%,#822b3f 0,#6e1f31 40%,#471320 100%);
-  padding:clamp(52px,9vw,100px) 0 clamp(60px,9vw,108px);
+  background:
+    linear-gradient(90deg,rgba(54,12,24,.92) 0,rgba(80,20,38,.74) 52%,rgba(110,31,49,.3) 100%),
+    url("images/hero.jpg") center/cover no-repeat,
+    #6e1f31;
+  padding:clamp(72px,12vw,150px) 0 clamp(80px,12vw,160px);
 }
 .hero::before{content:"";position:absolute;inset:8px;border:1px solid rgba(220,195,143,.45);pointer-events:none}
 @media (min-width:760px){.hero::before{inset:14px}}
 .hero-in{position:relative;width:min(100% - 56px,1040px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:2.4rem;align-items:center}
-@media (min-width:900px){.hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2.5rem}}
 .eyebrow{font-family:var(--serif);font-size:.8rem;letter-spacing:.26em;color:var(--gold-light);margin-bottom:1.1rem}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,1.2rem + 2.4vw,2.7rem);line-height:1.6;letter-spacing:.06em}
 .hero h1 .ph{display:inline-block}
-.hero .lead{margin-top:1.4rem;color:#f1e1cf;max-width:34em}
+.hero-text{max-width:34em}
+.hero h1,.hero .lead,.eyebrow{text-shadow:0 1px 14px rgba(40,8,18,.55)}
+.hero .lead{margin-top:1.4rem;color:#f8ecdc;max-width:34em}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
-.hero-art{justify-self:center;width:min(100%,330px)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.5rem 1.6rem;font-family:var(--serif);font-size:.98rem;letter-spacing:.12em;text-decoration:none;border:1px solid transparent;text-align:center;transition:background .25s,color .25s}
 .btn-gold{background:var(--gold-light);color:var(--wine-deep)}
@@ -102,8 +105,10 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
 /* ---------- Cakes ---------- */
 .cake-grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:28px}
 .cake{height:100%;position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line)}
-.cake-art{position:relative;height:164px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#fff 0,#f6e9d8 72%);border-bottom:1px solid var(--line)}
-.cake-art svg{width:180px;height:auto}
+.cake-art{position:relative;height:220px;overflow:hidden;background:#f6e9d8;border-bottom:1px solid var(--line)}
+.cake-art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cake:hover .cake-art img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.cake-art img{transition:none}.cake:hover .cake-art img{transform:none}}
 .tag{position:absolute;left:0;top:14px;background:var(--wine);color:#fff;font-family:var(--serif);font-size:.72rem;letter-spacing:.18em;padding:.15rem .8rem .15rem .7rem;line-height:1.7}
 .cake-body{flex:1;display:flex;flex-direction:column;padding:1.4rem 1.5rem 1.6rem}
 .cake h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1.5;letter-spacing:.06em;color:var(--wine)}
@@ -208,51 +213,6 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
         </div>
       </div>
 
-      <svg class="hero-art" viewBox="0 0 320 290" role="img" aria-label="ボルドー色のグレーズと苺を飾った、ケーキスタンドの上のホールケーキのイラスト">
-        <defs>
-          <g id="berry">
-            <path d="M0 -12 C10 -12 14 -2 8 8 C5 13 2 15 0 16 C-2 15 -5 13 -8 8 C-14 -2 -10 -12 0 -12Z" fill="#b32a45"/>
-            <path d="M-8 -12 L0 -8 L8 -12 L3 -17 L-3 -17Z" fill="#6d7f4a"/>
-            <circle cx="-4" cy="0" r="1.1" fill="#f6d3ad"/>
-            <circle cx="3" cy="-3" r="1.1" fill="#f6d3ad"/>
-            <circle cx="2" cy="6" r="1.1" fill="#f6d3ad"/>
-            <circle cx="-3" cy="8" r="1.1" fill="#f6d3ad"/>
-          </g>
-          <path id="spark" d="M0 -9 L2 -2 L9 0 L2 2 L0 9 L-2 2 L-9 0 L-2 -2Z"/>
-        </defs>
-        <use href="#spark" x="46" y="86" fill="#dcc38f"/>
-        <use href="#spark" x="288" y="58" fill="#dcc38f" transform="translate(0 0)"/>
-        <use href="#spark" x="276" y="150" fill="#dcc38f" opacity=".7"/>
-        <!-- stand -->
-        <ellipse cx="160" cy="276" rx="84" ry="8" fill="#2a0a12" opacity=".45"/>
-        <path d="M116 272 q44 -16 88 0z" fill="#dcc38f"/>
-        <rect x="155" y="228" width="10" height="40" fill="#cdb27a"/>
-        <ellipse cx="160" cy="226" rx="124" ry="17" fill="#cbb07a"/>
-        <ellipse cx="160" cy="220" rx="124" ry="16" fill="#efdcb4"/>
-        <!-- cake body -->
-        <path d="M72 150 V210 A88 14 0 0 0 248 210 V150Z" fill="#f5e6cf"/>
-        <path d="M72 174 A88 14 0 0 0 248 174 V182 A88 14 0 0 1 72 182Z" fill="#8a4b3a"/>
-        <path d="M72 194 A88 14 0 0 0 248 194 V200 A88 14 0 0 1 72 200Z" fill="#8a4b3a"/>
-        <!-- glaze -->
-        <path d="M72 150 A88 14 0 0 0 248 150 V164 A88 14 0 0 1 72 164Z" fill="#6e1f31"/>
-        <rect x="84" y="156" width="12" height="26" rx="6" fill="#6e1f31"/>
-        <rect x="114" y="162" width="12" height="22" rx="6" fill="#6e1f31"/>
-        <rect x="150" y="164" width="14" height="30" rx="7" fill="#6e1f31"/>
-        <rect x="190" y="162" width="12" height="22" rx="6" fill="#6e1f31"/>
-        <rect x="218" y="158" width="12" height="26" rx="6" fill="#6e1f31"/>
-        <ellipse cx="160" cy="150" rx="88" ry="14" fill="#832b3f"/>
-        <ellipse cx="128" cy="146" rx="38" ry="3.5" fill="#fff" opacity=".13"/>
-        <!-- toppings -->
-        <circle cx="136" cy="148" r="5" fill="#fbf1e4"/>
-        <circle cx="184" cy="148" r="5" fill="#fbf1e4"/>
-        <ellipse cx="94" cy="148" rx="9" ry="3.5" fill="#6d7f4a" transform="rotate(-15 94 148)"/>
-        <ellipse cx="226" cy="148" rx="9" ry="3.5" fill="#6d7f4a" transform="rotate(15 226 148)"/>
-        <use href="#berry" x="116" y="138"/>
-        <use href="#berry" x="160" y="130"/>
-        <use href="#berry" x="204" y="138"/>
-        <path d="M148 140 l7 -3 l3 6 l-7 3z" fill="#dcc38f"/>
-        <path d="M172 144 l6 -4 l4 5 l-6 3z" fill="#dcc38f"/>
-      </svg>
     </div>
   </section>
 
@@ -271,16 +231,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
           <article class="cake">
             <div class="cake-art">
               <span class="tag">Signature</span>
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <ellipse cx="80" cy="98" rx="62" ry="8" fill="#e4d3bd"/>
-                <path d="M38 62 h84 a6 6 0 0 1 6 6 v22 a6 6 0 0 1 -6 6 h-84 a6 6 0 0 1 -6 -6 v-22 a6 6 0 0 1 6 -6z" fill="#4a2420"/>
-                <rect x="32" y="78" width="96" height="4" fill="#8a5a46"/>
-                <path d="M32 68 a6 6 0 0 1 6 -6 h84 a6 6 0 0 1 6 6 v8 h-96z" fill="#6e1f31"/>
-                <circle cx="80" cy="53" r="8" fill="#a3283f"/>
-                <path d="M80 45 q4 -9 11 -11" stroke="#6d7f4a" stroke-width="2" fill="none" stroke-linecap="round"/>
-                <rect x="48" y="65" width="6" height="6" fill="#d6b25a" transform="rotate(45 51 68)"/>
-                <rect x="104" y="66" width="5" height="5" fill="#d6b25a" transform="rotate(45 106.5 68.5)"/>
-              </svg>
+              <img src="images/choco.jpg" alt="ガトー・ショコラのスライス。層になったチョコレートスポンジにショコラのかけらをのせて" loading="lazy" decoding="async" width="800" height="533" style="object-position:center 40%">
             </div>
             <div class="cake-body">
               <h3>ガトー・ショコラ・ボルドー</h3>
@@ -293,20 +244,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
         <li>
           <article class="cake">
             <div class="cake-art">
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <ellipse cx="80" cy="98" rx="62" ry="8" fill="#e4d3bd"/>
-                <path d="M28 66 h104 l-12 30 h-80z" fill="#d9a85f"/>
-                <path d="M45 68 v26 M62 68 v27 M80 68 v28 M98 68 v27 M115 68 v26" stroke="#b88541" stroke-width="1.5" fill="none"/>
-                <ellipse cx="80" cy="64" rx="53" ry="9" fill="#fbe8cf"/>
-                <circle cx="56" cy="54" r="9" fill="#b32a45"/>
-                <circle cx="80" cy="47" r="10" fill="#b32a45"/>
-                <circle cx="104" cy="54" r="9" fill="#b32a45"/>
-                <ellipse cx="56" cy="46" rx="4.5" ry="2" fill="#6d7f4a"/>
-                <ellipse cx="80" cy="38" rx="5" ry="2.2" fill="#6d7f4a"/>
-                <ellipse cx="104" cy="46" rx="4.5" ry="2" fill="#6d7f4a"/>
-                <circle cx="68" cy="62" r="2.6" fill="#e9a0b2"/>
-                <circle cx="92" cy="62" r="2.6" fill="#e9a0b2"/>
-              </svg>
+              <img src="images/tart.jpg" alt="つやのあるいちごをたっぷりのせたフルーツタルト" loading="lazy" decoding="async" width="800" height="533" style="object-position:center">
             </div>
             <div class="cake-body">
               <h3>タルト・フレーズ・ロゼ</h3>
@@ -320,19 +258,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
           <article class="cake">
             <div class="cake-art">
               <span class="tag">Popular</span>
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <ellipse cx="80" cy="100" rx="62" ry="8" fill="#e4d3bd"/>
-                <rect x="36" y="46" width="88" height="11" rx="2" fill="#fffaf0" stroke="#e3cfae"/>
-                <path d="M46 51.500 h68" stroke="#6e1f31" stroke-width="2.5" stroke-linecap="round"/>
-                <rect x="36" y="57" width="88" height="8" fill="#e8c27a"/>
-                <rect x="36" y="65" width="88" height="9" fill="#fff6e0" stroke="#efe0c0" stroke-width=".6"/>
-                <rect x="36" y="74" width="88" height="8" fill="#e8c27a"/>
-                <rect x="36" y="82" width="88" height="9" fill="#fff6e0" stroke="#efe0c0" stroke-width=".6"/>
-                <rect x="36" y="91" width="88" height="7" rx="2" fill="#d9a85f"/>
-                <circle cx="62" cy="40" r="3" fill="#a3283f"/>
-                <circle cx="80" cy="38" r="3" fill="#d6b25a"/>
-                <circle cx="98" cy="40" r="3" fill="#a3283f"/>
-              </svg>
+              <img src="images/mille.jpg" alt="粉砂糖をふったパイ生地にカスタードクリームといちごを重ねたミルフィーユ" loading="lazy" decoding="async" width="800" height="533" style="object-position:center">
             </div>
             <div class="cake-body">
               <h3>ミルフィーユ・ヴァニーユ</h3>
@@ -346,15 +272,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
           <article class="cake">
             <div class="cake-art">
               <span class="tag">Autumn</span>
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <ellipse cx="80" cy="100" rx="62" ry="8" fill="#e4d3bd"/>
-                <rect x="30" y="88" width="100" height="9" rx="4" fill="#f6e7c9" stroke="#e3cfae" stroke-width=".8"/>
-                <path d="M36 90 c0 -34 20 -54 44 -54 s44 20 44 54z" fill="#8a5a2b"/>
-                <path d="M46 86 c3 -22 17 -36 34 -36 M58 86 c2 -20 12 -32 22 -34 M70 86 c1 -18 6 -28 10 -30 M92 86 c0 -18 -6 -28 -12 -30 M104 86 c-2 -20 -12 -32 -24 -34 M114 86 c-3 -22 -17 -36 -34 -36" stroke="#6b4220" stroke-width="3" stroke-linecap="round" fill="none"/>
-                <path d="M68 44 q12 -8 24 0" stroke="#fffaf0" stroke-width="3" stroke-linecap="round" fill="none"/>
-                <ellipse cx="80" cy="34" rx="7" ry="6" fill="#c08a3e"/>
-                <path d="M77 30 q3 -3 6 0" stroke="#e3b66a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-              </svg>
+              <img src="images/mont.jpg" alt="栗のクリームを絞り、渋皮煮をのせたモンブラン" loading="lazy" decoding="async" width="800" height="533" style="object-position:center 70%">
             </div>
             <div class="cake-body">
               <h3>モンブラン・シャテーニュ</h3>
@@ -367,18 +285,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
         <li>
           <article class="cake">
             <div class="cake-art">
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <ellipse cx="80" cy="100" rx="62" ry="8" fill="#e4d3bd"/>
-                <rect x="36" y="46" width="88" height="9" rx="2" fill="#2e1a17"/>
-                <rect x="36" y="55" width="88" height="8" fill="#8a5a3a"/>
-                <rect x="36" y="63" width="88" height="6" fill="#d2ab72"/>
-                <rect x="36" y="69" width="88" height="9" fill="#5a2e24"/>
-                <rect x="36" y="78" width="88" height="8" fill="#8a5a3a"/>
-                <rect x="36" y="86" width="88" height="6" fill="#d2ab72"/>
-                <rect x="36" y="92" width="88" height="6" rx="2" fill="#2e1a17"/>
-                <polygon points="58,44 67,42 70,48 61,50" fill="#d6b25a"/>
-                <polygon points="86,46 92,44 94,48 88,50" fill="#e8c978"/>
-              </svg>
+              <img src="images/opera.jpg" alt="なめらかなショコラのグラサージュで覆った、層のチョコレートケーキ" loading="lazy" decoding="async" width="800" height="533" style="object-position:center">
             </div>
             <div class="cake-body">
               <h3>オペラ・ノワール</h3>
@@ -391,16 +298,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
         <li>
           <article class="cake">
             <div class="cake-art">
-              <svg viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-                <defs><clipPath id="ecl"><rect x="28" y="54" width="104" height="36" rx="18"/></clipPath></defs>
-                <ellipse cx="80" cy="100" rx="62" ry="8" fill="#e4d3bd"/>
-                <rect x="28" y="54" width="104" height="36" rx="18" fill="#e3b873"/>
-                <path clip-path="url(#ecl)" d="M20 40 H140 V74 q-10 10 -20 0 t-20 0 t-20 0 t-20 0 t-20 0 t-20 0Z" fill="#5a2a4f"/>
-                <circle cx="56" cy="64" r="2.4" fill="#d6b25a"/>
-                <circle cx="80" cy="62" r="2.4" fill="#d6b25a"/>
-                <circle cx="104" cy="64" r="2.4" fill="#d6b25a"/>
-                <path d="M48 58 q32 -6 64 0" stroke="#fff" stroke-opacity=".25" stroke-width="3" fill="none" stroke-linecap="round"/>
-              </svg>
+              <img src="images/eclair.jpg" alt="ショーケースに並ぶ、クリームやチョコレートをのせたエクレール" loading="lazy" decoding="async" width="800" height="533" style="object-position:center 78%">
             </div>
             <div class="cake-body">
               <h3>エクレール・ヴィオレット</h3>
@@ -575,6 +473,7 @@ h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
       TEL <a href="tel:0300000000">03-0000-0000</a> ・ 10:00〜19:00 ・ 火曜定休
     </address>
     <p class="disclaimer">※ 架空のサンプルサイトです。掲載している店名・住所・電話番号・メールアドレスなどはすべて架空のものです。</p>
+    <p class="disclaimer">写真: <a href="https://unsplash.com/" rel="noopener">Unsplash</a> の写真家の皆さん(Unsplash License)。イメージ写真であり、実際の商品・店舗とは異なります。</p>
     <p class="copy">© Maison Rosée (Sample)</p>
     <a class="to-top" href="#top">ページの先頭へ ↑</a>
   </div>
